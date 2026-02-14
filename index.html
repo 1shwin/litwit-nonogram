@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QR Redirect Dashboard</title>
+    <style>
+        body { font-family: sans-serif; text-align: center; padding: 40px; color: #333; }
+        .container { display: flex; justify-content: center; gap: 40px; flex-wrap: wrap; }
+        .qr-card { border: 2px solid #eee; padding: 20px; border-radius: 10px; width: 220px; }
+        img { width: 200px; height: 200px; margin-bottom: 15px; }
+        h3 { margin-bottom: 5px; }
+        p { font-size: 0.9em; color: #666; word-break: break-all; }
+    </style>
+</head>
+<body>
+
+    <h1>QR Code Redirect Manager</h1>
+    <p>Each QR code below randomly redirects to one of its five assigned links.</p>
+    <hr style="margin: 40px 0; border: 0; border-top: 1px solid #eee;">
+
+    <div class="container" id="qr-container">
+        </div>
+
+    <script>
+        // Get the current base URL (e.g., https://user.github.io/repo/)
+        const currentUrl = window.location.href.split('index.html')[0];
+        
+        const pages = [
+            { id: 1, filename: "page1.html", label: "Group A" },
+            { id: 2, filename: "page2.html", label: "Group B" },
+            { id: 3, filename: "page3.html", label: "Group C" }
+        ];
+
+        const container = document.getElementById('qr-container');
+
+        pages.forEach(page => {
+            const fullUrl = currentUrl + page.filename;
+            // Using the goqr.me API to generate the images
+            const qrApiUrl = `https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=${encodeURIComponent(fullUrl)}`;
+
+            const card = document.createElement('div');
+            card.className = 'qr-card';
+            card.innerHTML = `
+                <h3>${page.label}</h3>
+                <img src="${qrApiUrl}" alt="QR Code ${page.id}">
+                <p><a href="${fullUrl}">${page.filename}</a></p>
+            `;
+            container.appendChild(card);
+        });
+    </script>
+
+</body>
+</html>
