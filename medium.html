@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Redirecting...</title>
+    <meta charset="UTF-8">
+</head>
+<body>
+    <p>Preparing your Medium Nonogram...</p>
+
+    <script>
+        const links = [
+            "https://puzz.link/p?nonogram/11/8/3i2i51h122g14h4i14h122g51h2i3i11j11j7k232ibk171i1111h22j",
+            "https://puzz.link/p?nonogram/13/15/dmfm22lfm48l3322j2512j2226j256k337k4312jfmdmbldl2322i622j2322ia2k432j3322i2512i22212h2512i3322i432jdlbl",
+            "https://puzz.link/p?nonogram/8/22/1p3p62o1-10o1-10o231n5p2p1i2i4i3i2i2i2i2i2i2i2i2i2i2i2i4i12h21h11h6i32h22h"
+        ];
+
+        // Randomly select one link
+        const randomLink = links[Math.floor(Math.random() * links.length)];
+
+        // Execute redirect
+        window.location.replace(randomLink);
+    </script>
+</body>
+</html>
