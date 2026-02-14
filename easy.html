@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Redirecting...</title>
+    <meta charset="UTF-8">
+</head>
+<body>
+    <p>Preparing your Easy Nonogram...</p>
+
+    <script>
+        const links = [
+          "https://puzz.link/p?nonogram/9/9/5j7j9j9j44i44i33i22i11i5j7j9j6j4j6j9j7j5j",
+          "https://puzz.link/p?nonogram/9/9/k1j22i24i9j24i22i1o3j5j5j3j1j1j1j5j7j",
+          "https://puzz.link/p?nonogram/9/9/5j11i151h1111g11111111h121h13i3j14i11i131h111h1111g1111g151h11i5j",
+          "https://puzz.link/p?nonogram/9/9/p7j121h211h121h9t1j1j5j11i11i5j22i111h5j",
+          "https://puzz.link/p?nonogram/19/5/5h3h1k5k5k5h3h1h5h3h1k5h3h1h5h1111111i1222112i46113k1222112i1111111i",
+          "https://puzz.link/p?nonogram/11/9/2j4j6j7j8j8j8j42i22i4j2j33j9k27j28j9k7k5k3k1k"
+        ];
+
+        // Randomly select one link
+        const randomLink = links[Math.floor(Math.random() * links.length)];
+
+        // Execute redirect
+        window.location.replace(randomLink);
+    </script>
+</body>
+</html>
